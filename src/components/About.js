@@ -1,5 +1,4 @@
 import React from 'react'
-import Developer from "assets/DeveloperTransparent.png"
 import DeveloperAnimation from "assets/DeveloperAnimation.json"
 import Lottie from 'lottie-react'
 
