@@ -1,26 +1,32 @@
 import React from 'react'
 import Developer from "assets/DeveloperTransparent.png"
+import DeveloperAnimation from "assets/DeveloperAnimation.json"
+import Lottie from 'lottie-react'
 
 const About = () => {
   return (
-    <div id='about' className='flex flex-col-reverse sm:flex-row p-2 m-1 justify-center sm:justify-between items-center '>
-      <div className='flex-col w-fullsm:w-2/3 gap-2 p-2 pt-0 sm:pt-2'>
+    <div id='about' className='flex flex-col-reverse sm:flex-row p-2 m-1 justify-center sm:justify-around items-center scroll-mt-12'>
+      <div className='flex-col w-full sm:w-2/3 gap-2 p-2 pt-0 sm:pt-2'>
         <div className='text-2xl text-blue-400 font-medium m-1 text-center sm:text-left'>
           Hi, I'm Pradosh chand
         </div>
         <div className='text-xl font-normal m-1  text-center sm:text-left'>
-          and i love to build.
+          and i love to develop.
         </div>
-        <div className='font-extralight break-all m-1 text-gray-400'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam minima impedit fugiat mollitia. Officia sapiente, atque voluptatibus non facere debitis dolorem ducimus architecto obcaecati exercitationem tenetur repudiandae laboriosam sed a?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt sed sit aut pariatur optio, natus rerum culpa, odit neque magni accusantium repellendus debitis necessitatibus! Voluptatum minus unde culpa? Magni,
+        <div className='font-extralight m-1 text-gray-400'>
+          I am an engineering drop-out, i was pursuing my engineering in computer science branch.
+          I have always been amazed by technology and had a HOW in my mind, and then i printed my first <span className='text-blue-500'>"Hello World!"</span> and i knew what i love. I may have left engineering but my passion and love for coding and developing has not faltered one bit. So, i have been grinding to be better at something i love rather than something that i have to. I might not have a degree but i can show some promising results if given a chance.
         </div>
         <div className='flex w-full md:w-1/3 justify-around p-2 m-1'>
           <a href='#contact' className='bg-gray-900 text-blue-400 p-2 rounded-xl hover:text-blue-200 hover:bg-gray-700'>Contact me</a>
           <a href='#projects' className='bg-gray-900 text-blue-400 p-2 rounded-xl hover:text-blue-200 hover:bg-gray-700'>See my past works</a>
         </div>
       </div>
-      <img className='flex w-full sm:w-1/3 p-1 pb-0 sm:pb-1' src={Developer} alt='Developer' />
+      {/* <img className='flex w-full sm:w-1/3 p-1 pb-0 sm:pb-1' src={Developer} alt='Developer' /> */}
+      <Lottie
+          animationData={DeveloperAnimation}
+          className='w-2/4 sm:w-1/4 p-1'
+        />
     </div>
   )
 }
