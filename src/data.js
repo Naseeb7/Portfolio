@@ -1,7 +1,10 @@
-import JustSocial from "./assets/JustSocial.jpeg"
-import CloudNote from "./assets/CloudNote.jpeg"
-import TextAndTools from "./assets/TextAndTools.jpeg"
-import CodingContests from "./assets/CodingContests.jpeg"
+import JustSocial from "./assets/JustSocial.png"
+import CloudNote from "./assets/CloudNote.png"
+import TextAndTools from "./assets/TextAndTools.png"
+import CodingContests from "./assets/CodingContests.png"
+import github from "./assets/github.png"
+import linkedin from "./assets/linkedin.png"
+import gmail from "./assets/gmail.png"
 import MERN from "./assets/MERN-logo.png"
 import HTMLCSSJS from "./assets/HTML,CSS,JS.png"
 
@@ -14,6 +17,10 @@ export const projects = [
         image: JustSocial,
         techImage: MERN,
         link: "https://astonishing-gelato-875bc7.netlify.app/",
+        test : {
+          id : "test@test.com",
+          password : "testtest",
+        }
       },
     {
         title: "CloudNote",
@@ -23,6 +30,10 @@ export const projects = [
         image: CloudNote,
         techImage: MERN,
         link: "https://whimsical-bunny-5fb082.netlify.app/",
+        test : {
+          id : "test@test.com",
+          password : "testtest",
+        }
       },
     {
         title: "TextAndTools",
@@ -46,4 +57,22 @@ export const projects = [
 
 export const skills = [
   "React", "MaterialUI", "TailwindCSS", "Python", "JavaScript", "Node", "MongoDB", "HTML", "CSS"
+]
+
+export const links =[
+  {
+    title : "GitHub",
+    link : "https://github.com/Naseeb7",
+    image : github,
+  },
+  {
+    title : "LinkedIn",
+    link : "https://www.linkedin.com/in/pradosh-chand-4b209027a",
+    image : linkedin,
+  },
+  {
+    title : "G-mail",
+    link : "https://mail.google.com/mail/?view=cm&fs=1&to=chandpradosh7@gmail.com",
+    image : gmail,
+  },
 ]

@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import contactAnimation from "assets/Contact.json"
 import sentAnimation from "assets/MessageSent.json"
 import errorAnimation from "assets/Error.json"
+import loadinganimation from "assets/loadinganimation.json"
 import Lottie from 'lottie-react'
+import emailjs from '@emailjs/browser';
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
@@ -12,11 +14,13 @@ const Contact = () => {
   const [message, setMessage] = useState("")
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     if(name !== "" && email !== ""){
       try {
+        setLoading(true)
         const response = await fetch(`${baseUrl}/contact`, {
           method: "POST",
           headers: { "content-type": "application/json" },
@@ -27,6 +31,12 @@ const Contact = () => {
           }),
         });
         const data = await response.json();
+
+        await emailjs.send('service_9yzklfw','template_h1kfglw',{
+          from_name : name,
+          from_email : email,
+          message : message
+        },'1-nzeb9n4032veMKK')
         if (data.success) {
           setName("")
           setEmail("")
@@ -42,12 +52,14 @@ const Contact = () => {
             setError(false)
           }, 6000);
         }
+        setLoading(false)
       } catch (error) {
         console.log(error)
         setError(true)
           setTimeout(() => {
             setError(false)
           }, 6000);
+          setLoading(false)
       }
     }else if(name === ""){
       document.getElementById("name").placeholder="Please fill this!"
@@ -70,7 +82,7 @@ const Contact = () => {
     <div id='contact' className='flex flex-col m-2 p-2 justify-center items-center scroll-mt-12'>
       <div className='flex justify-center items-center gap-2 text-2xl relative font-semibold text-blue-300 p-2'>
       <i className="fa-solid fa-envelope"></i>
-        Send me a message
+        Leave me a message
         {success && (
           <Lottie
           animationData={sentAnimation}
@@ -83,9 +95,15 @@ const Contact = () => {
           className='flex w-10 absolute -right-9'
         />
         )}
+        {loading && (
+          <Lottie
+          animationData={loadinganimation}
+          className='flex w-14 absolute -right-10'
+        />
+        )}
       </div>
       <div className='text-sm text-center text-gray-500'>
-          Let me know what you think.
+          If there's anything i can do for you.
         </div>
       <div className='flex flex-col sm:flex-row justify-center items-center p-2 m-2'>
         <Lottie
@@ -102,7 +120,7 @@ const Contact = () => {
           <label htmlFor='message' className='text-gray-400'>Message</label>
           <textarea value={message} type='text' name='message' rows={6} placeholder='Want to hire you.' className='rounded-lg p-1 bg-gray-900 text-blue-400 resize-none placeholder:text-gray-700' onChange={(e) => setMessage(e.target.value)} />
 
-          <input type="submit" value="Submit" className='bg-blue-900 text-gray-400 p-2 rounded-xl hover:text-blue-200 hover:bg-gray-700 hover:cursor-pointer my-2' />
+            <input type="submit" value="Submit" className='bg-blue-900 text-gray-400 p-2 rounded-xl hover:text-blue-200 hover:bg-gray-700 hover:cursor-pointer my-2' />
         </form>
       </div>
     </div>
