@@ -7,6 +7,8 @@ import linkedin from "./assets/linkedin.png"
 import gmail from "./assets/gmail.png"
 import MERN from "./assets/MERN-logo.png"
 import HTMLCSSJS from "./assets/HTML,CSS,JS.png"
+import resume from "./assets/resume.png"
+import resumepdf from "./assets/PradoshResume.pdf"
 
 export const projects = [
     {
@@ -56,7 +58,7 @@ export const projects = [
 ]
 
 export const skills = [
-  "React", "MaterialUI", "TailwindCSS", "Python", "JavaScript", "Node", "MongoDB", "HTML", "CSS"
+  "React", "TailwindCSS", "MaterialUI", "Python", "JavaScript", "Node", "MongoDB", "HTML", "CSS"
 ]
 
 export const links =[
@@ -74,5 +76,10 @@ export const links =[
     title : "G-mail",
     link : "https://mail.google.com/mail/?view=cm&fs=1&to=chandpradosh7@gmail.com",
     image : gmail,
+  },
+  {
+    title : "Resume",
+    link : resumepdf,
+    image : resume,
   },
 ]
