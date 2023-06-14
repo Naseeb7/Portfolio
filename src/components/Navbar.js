@@ -11,7 +11,7 @@ const Navbar = () => {
             <a href='#skills' className='hidden sm:flex p-2  text-sm hover:text-blue-300'>Skills</a>
             <a href='#links' className='hidden sm:flex p-2  text-sm hover:text-blue-300'>Links</a>
             </div>
-            <a href='#contact'  className='flex text-sm bg-gray-800 rounded-full p-1 sm:bg-inherit'>Contact me</a>
+            <a href='#contact'  className='flex text-sm bg-gray-800 rounded-full p-1 sm:bg-inherit hover:text-blue-300'>Hire me</a>
 
         </div>
     )

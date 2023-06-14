@@ -12,10 +12,11 @@ const Projects = () => {
                 </div>
                 {/* <i className="fa-sharp fa-solid fa-code text-4xl m-2 mb-0 text-blue-900" /> */}
                 <div className='text-blue-300 text-2xl p-2 m-2'>
-                    Apps i've built
+                    Apps i've developed
                 </div>
-                <div className='sm:w-2/3 text-sm text-center text-gray-500'>
-                    Here are some of my most beloved artwork but not all though! This portfolio is part of this as well. Since i have been doing it for past few months there might not be much but thank you for checking them out!
+                <div className='flex flex-col text-sm text-center text-gray-500'>
+                    <span className="text-blue-500">Get a better understanding of my skills through these projects i have developed.</span> 
+                    Since i have been doing it for past few months there might not be much but thank you for checking them out!
                 </div>
             </div>
             <div className='grid grid-cols-1 w-full sm:w-2/3 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-6 sm:m-2 sm:p-6'>

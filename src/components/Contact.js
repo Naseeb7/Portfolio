@@ -31,12 +31,7 @@ const Contact = () => {
           }),
         });
         const data = await response.json();
-
-        await emailjs.send('service_9yzklfw','template_h1kfglw',{
-          from_name : name,
-          from_email : email,
-          message : message
-        },'1-nzeb9n4032veMKK')
+        setLoading(false)
         if (data.success) {
           setName("")
           setEmail("")
@@ -52,7 +47,12 @@ const Contact = () => {
             setError(false)
           }, 6000);
         }
-        setLoading(false)
+
+        await emailjs.send('service_9yzklfw','template_h1kfglw',{
+          from_name : name,
+          from_email : email,
+          message : message
+        },'1-nzeb9n4032veMKK')
       } catch (error) {
         console.log(error)
         setError(true)
@@ -103,7 +103,7 @@ const Contact = () => {
         )}
       </div>
       <div className='text-sm text-center text-gray-500'>
-          If there's anything i can do for you.
+          if i can be of any service.
         </div>
       <div className='flex flex-col sm:flex-row justify-center items-center p-2 m-2'>
         <Lottie
