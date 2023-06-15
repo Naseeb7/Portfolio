@@ -13,7 +13,7 @@ const About = () => {
           Frontend Developer
         </div>
         <div className='font-extralight text-sm text-center sm:text-left m-1 text-gray-400'>
-          I love to code and have been trying to for quite some time now. I am an engineering drop-out and was pursuing my B.tech in CSE branch. I am a fast learner and can adapt quick. Creative and outside-the-box thinking has always been my forte. I can be excelling and reliable, given the chance. <span className="text-blue-500">Available for hiring</span>, please cruise through the page to know more. <span className="text-blue-500">Thank you!</span>
+          I love to code and have been trying to for quite some time now. Dropped-out of engineering and was pursuing my B.tech in CSE branch. I am a fast learner and can adapt quick. Creativity and outside-the-box thinking has always been my forte. Given the chance, I can be excelling and reliable. <span className="text-blue-500">Available for hiring</span>, please cruise through the page to know more.
         </div>
       </div>
       <Lottie

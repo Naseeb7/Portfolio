@@ -58,7 +58,7 @@ export const projects = [
 ]
 
 export const skills = [
-  "React", "TailwindCSS", "MaterialUI", "Python", "JavaScript", "Node", "MongoDB", "HTML", "CSS"
+  "React", "TailwindCSS", "MaterialUI", "JavaScript", "Python", "Node", "MongoDB", "HTML", "CSS"
 ]
 
 export const links =[
