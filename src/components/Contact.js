@@ -5,6 +5,7 @@ import errorAnimation from "assets/Error.json"
 import loadinganimation from "assets/loadinganimation.json"
 import Lottie from 'lottie-react'
 import emailjs from '@emailjs/browser';
+import { AtSign } from 'lucide-react'
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
@@ -79,9 +80,9 @@ const Contact = () => {
   }
 
   return (
-    <div id='contact' className='flex flex-col m-2 p-2 justify-center items-center scroll-mt-12'>
+    <div id='contact' className='flex flex-col m-y-2 p-2 justify-center items-center scroll-mt-12'>
       <div className='flex justify-center items-center gap-2 text-2xl relative font-semibold text-blue-300 p-2'>
-        <i className="fa-solid fa-envelope"></i>
+        <AtSign />
         Leave me a message
         {success && (
           <Lottie
@@ -108,9 +109,9 @@ const Contact = () => {
       <div className='flex flex-col sm:flex-row justify-center items-center p-2 m-2'>
         <Lottie
           animationData={contactAnimation}
-          className='flex w-1/4'
+          className='flex w-1/2 sm:w-1/4'
         />
-        <form onSubmit={handleSubmit} className='flex flex-col sm:w-1/4 p-2 gap-1'>
+        <form onSubmit={handleSubmit} className='flex flex-col w-full sm:w-1/4 p-2 gap-1'>
           <label htmlFor='name' className='text-gray-400'>Name</label>
           <input value={name} type='text' id='name' name='name' placeholder='Pradosh chand' className='rounded-lg p-1 bg-gray-900 text-blue-400 placeholder:text-gray-700' onChange={(e) => setName(e.target.value)} />
 

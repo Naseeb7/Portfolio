@@ -1,14 +1,10 @@
 import JustSocial from "./assets/JustSocial.png"
 import CloudNote from "./assets/CloudNote.png"
 import TextAndTools from "./assets/TextAndTools.png"
-import CodingContests from "./assets/CodingContests.png"
-import github from "./assets/github.png"
-import linkedin from "./assets/linkedin.png"
-import gmail from "./assets/gmail.png"
+import iSee from "./assets/iSee.png"
 import MERN from "./assets/MERN-logo.png"
 import HTMLCSSJS from "./assets/HTML,CSS,JS.png"
-import resume from "./assets/resume.png"
-import resumepdf from "./assets/PradoshResume.pdf"
+import ReactLogo from "./assets/ReactLogo.png"
 
 export const projects = [
     {
@@ -23,6 +19,15 @@ export const projects = [
           id : "test@test.com",
           password : "testtest",
         }
+      },
+    {
+        title: "iSee",
+        subtitle: "React",
+        description:
+          "iSee is a one-time one-on-one video call web app designed with Tailwind CSS, built using React, WebRTC, Socket.io, and more. It offers instant video calls with live chat, privacy controls, and a responsive user interface, all without the need for accounts or installations.",
+        image: iSee,
+        techImage: ReactLogo,
+        link: "https://fabulous-sundae-c611c5.netlify.app/"
       },
     {
         title: "CloudNote",
@@ -46,40 +51,8 @@ export const projects = [
         techImage: HTMLCSSJS,
         link: "https://ubiquitous-selkie-4f13e6.netlify.app/",
       },
-    {
-        title: "CodingContests",
-        subtitle: "HTML, CSS, JS",
-        description:
-          "A simple webapp to see the online coding contests list in one place. It has a filter to sort out all the contests within 24 hours.",
-        image: CodingContests,
-        techImage: HTMLCSSJS,
-        link: "https://naseeb7.github.io/CodingContests/",
-      },
 ]
 
 export const skills = [
-  "React", "TailwindCSS", "MaterialUI", "JavaScript", "Python", "Node", "MongoDB", "HTML", "CSS"
-]
-
-export const links =[
-  {
-    title : "GitHub",
-    link : "https://github.com/Naseeb7",
-    image : github,
-  },
-  {
-    title : "LinkedIn",
-    link : "https://www.linkedin.com/in/pradosh-chand-4b209027a",
-    image : linkedin,
-  },
-  {
-    title : "G-mail",
-    link : "https://mail.google.com/mail/?view=cm&fs=1&to=chandpradosh7@gmail.com",
-    image : gmail,
-  },
-  {
-    title : "Resume",
-    link : resumepdf,
-    image : resume,
-  },
+  "React", "TailwindCSS", "MaterialUI", "WebSockets", "WebRTC", "JavaScript", "Python", "Node", "MongoDB", "HTML", "CSS"
 ]

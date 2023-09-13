@@ -16,6 +16,9 @@ module.exports = {
         800 : '#013751',
         900 : '#001b29',
       },
+      dropShadow : {
+        custom : '0 0 0.3rem #00abfa'
+      }
     },
   },
   plugins: [],
