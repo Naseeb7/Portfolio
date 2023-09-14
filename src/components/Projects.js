@@ -28,7 +28,7 @@ const Projects = () => {
       <div className="grid grid-cols-1 w-full sm:w-2/3 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-6 sm:m-2 sm:p-6">
         {projects.map((project) => {
           return (
-            <div key={project.title} className="flex flex-col p-4 gap-2">
+            <div key={project.title} className="flex flex-col p-4 gap-2 ">
               <div className="flex w-full justify-start items-center text-2xl font-semibold text-blue-400 sm:hidden">
                 {project.title}
               </div>
@@ -41,7 +41,7 @@ const Projects = () => {
                 <img
                   src={project.image}
                   alt="project"
-                  className="rounded-xl "
+                  className="rounded-xl h-[30vh] sm:h-[50vh] w-full"
                 />
                 <div className="hidden sm:flex flex-col justify-center items-center absolute rounded-xl bg-black/70 opacity-0 hover:opacity-100 w-full h-full duration-300">
                   <div className="text-2xl font-semibold text-blue-400 p-2 m-1">

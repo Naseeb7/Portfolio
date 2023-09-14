@@ -84,24 +84,6 @@ const Contact = () => {
       <div className='flex justify-center items-center gap-2 text-2xl relative font-semibold text-blue-300 p-2'>
         <AtSign />
         Leave me a message
-        {success && (
-          <Lottie
-            animationData={sentAnimation}
-            className='flex w-10 absolute -right-9'
-          />
-        )}
-        {error && (
-          <Lottie
-            animationData={errorAnimation}
-            className='flex w-10 absolute -right-9'
-          />
-        )}
-        {loading && (
-          <Lottie
-            animationData={loadinganimation}
-            className='flex w-14 absolute -right-10'
-          />
-        )}
       </div>
       <div className='text-sm text-center text-gray-500'>
         if i can be of any service.
@@ -113,15 +95,35 @@ const Contact = () => {
         />
         <form onSubmit={handleSubmit} className='flex flex-col w-full sm:w-1/4 p-2 gap-1'>
           <label htmlFor='name' className='text-gray-400'>Name</label>
-          <input value={name} type='text' id='name' name='name' placeholder='Pradosh chand' className='rounded-lg p-1 bg-gray-900 text-blue-400 placeholder:text-gray-700' onChange={(e) => setName(e.target.value)} />
+          <input value={name} type='text' id='name' name='name' placeholder='Pradosh chand' className='rounded-lg p-2 bg-gray-900 text-blue-400 placeholder:text-gray-700' onChange={(e) => setName(e.target.value)} />
 
           <label htmlFor='email' className='text-gray-400'>E-mail</label>
-          <input value={email} type='text' id='email' name='email' placeholder='xyz@mail.com' className='rounded-lg p-1 bg-gray-900 text-blue-400 placeholder:text-gray-700' onChange={(e) => setEmail(e.target.value)} />
+          <input value={email} type='text' id='email' name='email' placeholder='xyz@mail.com' className='rounded-lg p-2 bg-gray-900 text-blue-400 placeholder:text-gray-700' onChange={(e) => setEmail(e.target.value)} />
 
           <label htmlFor='message' className='text-gray-400'>Message</label>
-          <textarea value={message} type='text' name='message' rows={6} placeholder='Want to hire you.' className='rounded-lg p-1 bg-gray-900 text-blue-400 resize-none placeholder:text-gray-700' onChange={(e) => setMessage(e.target.value)} />
+          <textarea value={message} type='text' name='message' rows={6} placeholder='Want to hire you.' className='rounded-lg p-2 bg-gray-900 text-blue-400 resize-none placeholder:text-gray-700' onChange={(e) => setMessage(e.target.value)} />
 
-          <input type="submit" value="Submit" className='bg-blue-900 text-gray-400 p-2 rounded-xl hover:text-blue-200 hover:bg-gray-700 hover:cursor-pointer my-2' />
+          <button type="submit" value="Submit" className='flex justify-center items-center relative bg-blue-900 text-gray-400 p-2 rounded-xl hover:text-blue-200 hover:bg-gray-700 hover:cursor-pointer my-2 h-12 duration-100 group/submit' >
+            {((!loading && !success) && !error) && <span className='text-lg'>Send</span>}
+        {success && (
+          <Lottie
+            animationData={sentAnimation}
+            className='flex absolute w-10 -right-50'
+          />
+        )}
+        {error && (
+          <Lottie
+            animationData={errorAnimation}
+            className='flex absolute w-1/12 -right-50'
+          />
+        )}
+        {loading && (
+          <Lottie
+            animationData={loadinganimation}
+            className='flex absolute w-1/4 -right-50'
+          />
+        )}
+          </button>
         </form>
       </div>
     </div>
