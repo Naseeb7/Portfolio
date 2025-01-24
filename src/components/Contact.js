@@ -1,42 +1,35 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import contactAnimation from "assets/Contact.json"
 import sentAnimation from "assets/MessageSent.json"
 import errorAnimation from "assets/Error.json"
 import loadinganimation from "assets/loadinganimation.json"
-import Lottie from 'lottie-react'
 import emailjs from '@emailjs/browser';
 import { AtSign } from 'lucide-react'
+import Lottie from 'lottie-react'
+import { initialContactDetails } from 'utils/defaultState'
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 const Contact = () => {
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [message, setMessage] = useState("")
+  const [details, setDetails]= useState(initialContactDetails)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (name !== "" && email !== "") {
+    if (Object.values(details).every(detail=>detail!== "")) {
       try {
         setLoading(true)
         const response = await fetch(`${baseUrl}/contact`, {
           method: "POST",
           headers: { "content-type": "application/json" },
-          body: JSON.stringify({
-            name: name,
-            email: email,
-            info: message,
-          }),
+          body: JSON.stringify(details),
         });
         const data = await response.json();
         setLoading(false)
         if (data.success) {
-          setName("")
-          setEmail("")
-          setMessage("")
+          setDetails(initialContactDetails)
           setSuccess(true)
           setTimeout(() => {
             setSuccess(false)
@@ -50,9 +43,9 @@ const Contact = () => {
         }
 
         emailjs.send('service_9yzklfw', 'template_h1kfglw', {
-          from_name: name,
-          from_email: email,
-          message: message
+          from_name: details.name,
+          from_email: details.email,
+          message: details.message
         }, '1-nzeb9n4032veMKK')
       } catch (error) {
         console.log(error)
@@ -62,14 +55,14 @@ const Contact = () => {
         }, 6000);
         setLoading(false)
       }
-    } else if (name === "") {
+    } else if (details.name === "") {
       document.getElementById("name").placeholder = "Please fill this!"
       document.getElementById("name").style.outline = "1px solid red"
       setTimeout(() => {
         document.getElementById("name").placeholder = "Pradosh Chand"
         document.getElementById("name").style.outline = "none"
       }, 5000);
-    } else if (email === "") {
+    } else if (details.email === "") {
       document.getElementById("email").placeholder = "Please fill this!"
       document.getElementById("email").style.outline = "1px solid red"
       setTimeout(() => {
@@ -78,6 +71,16 @@ const Contact = () => {
       }, 5000);
     }
   }
+
+  const setter = useCallback((e)=>{
+    const {name, value} = e.target
+    setDetails((prev)=>{
+      return {
+        ...prev,
+        [name] : value
+      }
+    })
+  },[details])
 
   return (
     <div id='contact' className='flex flex-col m-y-2 p-2 justify-center items-center scroll-mt-12'>
@@ -95,13 +98,13 @@ const Contact = () => {
         />
         <form onSubmit={handleSubmit} className='flex flex-col w-full sm:w-1/4 p-2 gap-1'>
           <label htmlFor='name' className='text-gray-400'>Name</label>
-          <input value={name} type='text' id='name' name='name' placeholder='Pradosh chand' className='rounded-lg p-2 bg-gray-900 text-blue-400 placeholder:text-gray-700' onChange={(e) => setName(e.target.value)} />
+          <input value={details.name} type='text' id='name' name='name' placeholder='Pradosh chand' className='rounded-lg p-2 bg-gray-900 text-blue-400 placeholder:text-gray-700' onChange={setter} />
 
           <label htmlFor='email' className='text-gray-400'>E-mail</label>
-          <input value={email} type='text' id='email' name='email' placeholder='xyz@mail.com' className='rounded-lg p-2 bg-gray-900 text-blue-400 placeholder:text-gray-700' onChange={(e) => setEmail(e.target.value)} />
+          <input value={details.email} type='text' id='email' name='email' placeholder='xyz@mail.com' className='rounded-lg p-2 bg-gray-900 text-blue-400 placeholder:text-gray-700' onChange={setter} />
 
           <label htmlFor='message' className='text-gray-400'>Message</label>
-          <textarea value={message} type='text' name='message' rows={6} placeholder='Want to hire you.' className='rounded-lg p-2 bg-gray-900 text-blue-400 resize-none placeholder:text-gray-700' onChange={(e) => setMessage(e.target.value)} />
+          <textarea value={details.message} type='text' name='message' rows={6} placeholder='Want to hire you.' className='rounded-lg p-2 bg-gray-900 text-blue-400 resize-none placeholder:text-gray-700' onChange={setter} />
 
           <button type="submit" value="Submit" className='flex justify-center items-center relative bg-blue-900 text-gray-400 p-2 rounded-xl hover:text-blue-200 hover:bg-gray-700 hover:cursor-pointer my-2 h-12 duration-100 group/submit' >
             {((!loading && !success) && !error) && <span className='text-lg'>Send</span>}

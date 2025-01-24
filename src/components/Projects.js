@@ -43,17 +43,17 @@ const Projects = () => {
                   alt="project"
                   className="rounded-xl h-[30vh] sm:h-[50vh] w-full"
                 />
-                <div className="hidden sm:flex flex-col justify-center items-center absolute rounded-xl bg-black/70 opacity-0 hover:opacity-100 w-full h-full duration-300">
-                  <div className="text-2xl font-semibold text-blue-400 p-2 m-1">
+                <div className="hidden sm:flex flex-col justify-center items-center absolute rounded-xl bg-black/80 opacity-0 hover:opacity-100 w-full h-full duration-300">
+                  <div className="text-4xl font-semibold text-blue-200 p-2 m-1">
                     {project.title}
                   </div>
-                  <img
+                  {/* <img
                     src={project.techImage}
                     alt="project"
                     className="rounded-2xl w-1/4 bg-blue-50 p-2"
-                  />
+                  /> */}
                   <div className="flex text-xs sm:hidden">click to view</div>
-                  <div className="text-sm p-2 w-3/4 text-center text-slate-400 font-semibold">
+                  <div className="text-sm p-2 w-3/4 text-center text-gray-200 ">
                     {project.description}
                   </div>
                 </div>

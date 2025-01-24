@@ -1,5 +1,6 @@
 import { skills } from 'data'
 import { CheckCircle } from 'lucide-react'
+// import { CheckCircle } from 'lucide-react'
 import React from 'react'
 
 const Skills = () => {
@@ -16,7 +17,7 @@ const Skills = () => {
       <div className='grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2 w-5/6 sm:w-2/4 p-2 m-2'>
       {skills.map((skill)=>{
         return <div key={skill} className='flex items-center gap-2 p-2 rounded-md bg-blue-900'>
-          <CheckCircle className='text-green-500'/>
+          <CheckCircle />
           {skill}
         </div>
       })}
